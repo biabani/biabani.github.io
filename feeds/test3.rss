@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Sahand Podcast</title>
+    <itunes:owner>
+        <itunes:email>hasanbiabani@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:author>Hasan</itunes:author>
+    <description>سعی می‌کنم مطالبی رو که گوش می‌کنم یه جا جمع کنم، محتوا مال خودم نیست. در صورتی که صاحب اثر هستید و از انتشار اثر خود در اینجا ناراضی هستید لطفا اطلاع دهید.</description>
+    <itunes:image href="https://bayanbox.ir/preview/5374116589477659827/sahand-logo.jpg"/>
+    <language>fs-ir</language>
+    <link>https://shemshad.blog.ir</link>
+    <item>
+      <title>حیدربابا</title>
+      <description>منظومه حیدربابا سروده ماندگار شهریار است. حیدربابایه سلام به معنای سلام بر حیدربابا به ترکی آذربایجانی سروده شده است</description>
+      <pubDate>Thu, 03 Nov 2022 00:32:36 +0330</pubDate>
+      <enclosure url="https://bayanbox.ir/view/mp3/1953771470228927431/A001-Sahandieh-01-08-11.mp3" type="audio/mpeg"/>
+
+    </item>
+    <item>
+      <title>سهندیه</title>
+      <description>سهندیه نام منظومه‌ای به ترکی آذربایجانی از محمدحسین شهریار است.</description>
+      <pubDate>Mon, 10 Oct 2022 00:43:37 +0330</pubDate>
+      <enclosure url="https://bayanbox.ir/view/mp3/5517677947839898972/A002-Heidar-Baba-01-08-11.mp3"  type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>
