@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Sahand Podcast</title>
+    <itunes:owner>
+        <itunes:email>hasanbiabani@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:author>Hasan</itunes:author>
+    <description>سعی می‌کنم مطالبی رو که گوش می‌کنم یه جا جمع کنم، محتوا مال خودم نیست. در صورتی که صاحب اثر هستید و از انتشار اثر خود در اینجا ناراضی هستید لطفا اطلاع دهید.</description>
+    <itunes:image href="https://bayanbox.ir/preview/5374116589477659827/sahand-logo.jpg"/>
+    <language>fs-ir</language>
+    <link>https://shemshad.blog.ir</link>
+    <item>
+      <title>حیدربابا</title>
+      <description>منظومه حیدربابا سروده ماندگار شهریار است. حیدربابایه سلام به معنای سلام بر حیدربابا به ترکی آذربایجانی سروده شده است</description>
+      <pubDate>Thu, 03 Nov 2022 00:32:36 +0330</pubDate>
+      <enclosure url="https://bayanbox.ir/view/mp3/1953771470228927431/A001-Sahandieh-01-08-11.mp3" type="audio/mpeg"/>
+
+    </item>
+    <item>
+      <title>سهندیه</title>
+      <description>سهندیه نام منظومه‌ای به ترکی آذربایجانی از محمدحسین شهریار است.</description>
+      <pubDate>Mon, 10 Oct 2022 00:43:37 +0330</pubDate>
+      <enclosure url="https://bayanbox.ir/view/mp3/5517677947839898972/A002-Heidar-Baba-01-08-11.mp3"  type="audio/mpeg"/>
+    </item>
+    <item>
+        <title>سهندیه</title>
+        <link>https://shemshad.blog.ir/1401/08/12/%D8%AD%DB%8C%D8%AF%D8%B1%D8%A8%D8%A7%D8%A8%D8%A7</link>
+        <description>&lt;div style="direction:rtl"&gt;&lt;p&gt;سهندیه نام منظومه‌ای به ترکی آذربایجانی از محمدحسین شهریار است.&lt;/p&gt;
+&lt;p&gt;شهریار این منظومه را به خاطر ارادتی که به بولود قاراچورلو شاعر اهل مراغه پیدا کرده بود و  به افتخارش آنرا سهندیه نامید.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B8%D9%88%D9%85%D9%87_%D8%B3%D9%87%D9%86%D8%AF%DB%8C%D9%87"&gt;ویکی پدیا&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;div class="audio"&gt;&lt;audio id="play_audio_box" controls="controls" width="324" preload="none"&gt;&lt;source type="audio/mpeg" src="//bayanbox.ir/view/mp3/1953771470228927431/A001-Sahandieh-01-08-11.mp3"&gt;&lt;/source&gt; &lt;source type="audio/ogg" src="//bayanbox.ir/view/oga/1953771470228927431/A001-Sahandieh-01-08-11.oga"&gt;&lt;/source&gt;&lt;div class="browserWarning"&gt;متاسفانه مرورگر شما، قابیلت پخش فایل های صوتی تصویری را در قالب HTML5 دارا نمی باشد.&lt;br&gt;توصیه ما به شما استفاده از مروگرهای رایج و بروزرسانی آن به آخرین نسخه می باشد&lt;br&gt;با این حال ممکن است مرورگرتان توسط پلاگین خود قابلیت پخش این فایل را برای تان فراهم آورد.&lt;/div&gt;
+&lt;object id="audio" classid="CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6" width="324" height="50"&gt;&lt;param name="filename" value="//bayanbox.ir/view/mp3/1953771470228927431/A001-Sahandieh-01-08-11.mp3"&gt;param name="AutoStart" value="False"&amp;gt;&lt;param name="ShowControls" value="True"&gt;
+&lt;param name="ShowStatusBar" value="False"&gt;
+&lt;param name="ShowDisplay" value="False"&gt;
+&lt;param name="AutoRewind" value="True"&gt;
+&lt;embed type="application/x-mplayer2" pluginspage="http://www.microsoft.com/Windows/Downloads/Contents/MediaPlayer/" src="//bayanbox.ir/view/mp3/1953771470228927431/A001-Sahandieh-01-08-11.mp3" autostart="false" showcontrols="true" showstatusbar="0" showdisplay="0" autorewind="1" width="324" height="50"&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/audio&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href="https://github.com/biabani/Shemshad/raw/main/sahand.rss"&gt;لینک پادکست سهند&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;</description>
+        <pubDate>Mon, 10 Oct 2022 00:43:37 +0330</pubDate>
+        <enclosure url="https://anchor.fm/s/77bc9748/podcast/play/45082779/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2021-11-19%2Fe1514024-299d-f9d2-abe5-58e83966dc35.mp3" length="19662856" type="audio/mpeg"/>
+    </item>
+  </channel>
+</rss>
