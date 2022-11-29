@@ -2,7 +2,7 @@
 <rss version="2.0"
     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
-    <title>Sahand Podcast</title>
+    <title>Sahand Podcast | پادکست سهند</title>
     <itunes:owner>
         <itunes:email>hasanbiabani@gmail.com</itunes:email>
     </itunes:owner>
@@ -12,6 +12,13 @@
     <language>fa-ir</language>
     <link>https://shemshad.blog.ir</link>
     <item>
+<title>برنامه شیوه شبکه چهار -  1 مهر 1401</title>
+<link>https://shemshad.blog.ir/1401/09/09/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%B4%DB%8C%D9%88%D9%87-%D8%B4%D8%A8%DA%A9%D9%87-%DA%86%D9%87%D8%A7%D8%B1-1-%D9%85%D9%87%D8%B1-1401</link>
+<description> بحران های اجتماعی ایران؛ با حضور آقایان تقی آزاد برمکی و ابراهیم فیاضی به میزبانی عطاءالله بیگدلی</description>
+<pubDate>Wed, 30 Nov 2022 00:48:32 +0330</pubDate>
+<enclosure url="https://bayanbox.ir/view/mp3/8224297694583537087/A007-Shiveh-01-07-01.mp3" type="audio/mpeg"/>
+</item>
+<item>
 <title>برنامه شیوه شبکه چهار - 31 شهریور 1401</title>
 <link>https://shemshad.blog.ir/1401/09/08/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%B4%DB%8C%D9%88%D9%87-31-%D8%B4%D9%87%D8%B1%DB%8C%D9%88%D8%B1-1401</link>
 <description>با حضور آقایان بیژن عبدالکریمی و شهریار زرشناس به میزبانی عطاءالله بیگدلی</description>
