@@ -17,7 +17,7 @@ db = sqlite3.connect('data.db')
 cursor = db.cursor()
 cursor.execute('''
 	CREATE TABLE IF NOT EXISTS  data (id INTEGER PRIMARY KEY, pubDate TEXT UNIQUE,
-    title TEXT, description TEXT, medialink  TEXT, link TEXT, tags TEXT, length TEXT, filename TEXT)
+    title TEXT, description TEXT, medialink  TEXT, link TEXT, tags TEXT, length TEXT, filename TEXT, filesize TEXT)
 ''')
 db.commit()
 
@@ -68,18 +68,25 @@ for item in channel.findall('item'):
         length = None
     else:	
         length = int(audio.info.length*1000)
-    print(length)
+
+    try:
+        filesize = os.path.getsize("media/" + filename)
+    except:
+        filesize = None
+
+
+    print(filesize)
     link = item.find('link').text
     title = item.find('title').text
     pubDate = item.find('pubDate').text
     tags=" "
     hashTags= " "
     for tag in item.findall('category'):
-        hashTags= "#" + re.sub(r"\s+", '_', re.sub(r"[^\w\s+]", ' ', tag.text)) + " , " + hashTags
-        tags= "#" + tag.text  + " , " + tags
+        hashTags= "#" + re.sub(r"\s+", '_', re.sub(r"[^\w\s+]", ' ', tag.text)) + " " + hashTags
+        tags= "#" + tag.text  + " " + tags
     tags = tags +"\n" + hashTags
-    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags,length,filename)
-                VALUES(?,?,?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags,length,filename))
+    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags,length,filename,filesize)
+                VALUES(?,?,?,?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags,length,filename,filesize))
 
 db.commit()
 
@@ -102,8 +109,8 @@ else:
             f.write(newLine)
             newLine = "<pubDate>" + row[1] + "</pubDate>"+ "\n"
             f.write(newLine)
-            if row[7] is not None:
-                newLine= "<enclosure url=\"" +row[4] + "\"  length=\"" + str(row[7] ) + "\" type=\"audio/mpeg\"/>"+ "\n"
+            if row[9] is not None:
+                newLine= "<enclosure url=\"" +row[4] + "\"  length=\"" + str(row[9] ) + "\" type=\"audio/mpeg\"/>"+ "\n"
             else:
                 newLine= "<enclosure url=\"" +row[4] + "\" type=\"audio/mpeg\"/>"+ "\n"   
 
