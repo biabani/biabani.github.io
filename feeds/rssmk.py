@@ -61,7 +61,7 @@ for item in channel.findall('item'):
     pubDate = item.find('pubDate').text
     tags=" "
     for tag in item.findall('category'):
-        tags=tags + " , " + tag.text
+        tags= "#"+ tag.text  + " , " + tags
     cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags)
                 VALUES(?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags))
 
