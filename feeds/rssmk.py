@@ -1,7 +1,11 @@
+from fileinput import filename
 import xml.etree.ElementTree as ET
 import  urllib.request
 import sqlite3
 import re
+from mutagen.mp3 import MP3
+import os
+from urllib.parse import urlparse
 
 NUMBER_OF_PRINTED = 30
 # Create a database in RAM
@@ -13,7 +17,7 @@ db = sqlite3.connect('data.db')
 cursor = db.cursor()
 cursor.execute('''
 	CREATE TABLE IF NOT EXISTS  data (id INTEGER PRIMARY KEY, pubDate TEXT UNIQUE,
-    title TEXT, description TEXT, medialink  TEXT, link TEXT, tags TEXT, length TEXT)
+    title TEXT, description TEXT, medialink  TEXT, link TEXT, tags TEXT, length TEXT, filename TEXT)
 ''')
 db.commit()
 
@@ -55,15 +59,27 @@ for item in channel.findall('item'):
     indexStart = description.find("src")
     indexEnd = description.find(".mp3")
     medialink ="https:" + (description[indexStart+5:indexEnd]) + ".mp3"
-    print (medialink)
+    filename =re.sub(r"-", '_', os.path.basename(urlparse(medialink).path))
+    print (filename)
+
+    try:
+        audio = MP3("media/" + filename)
+    except:
+        length = None
+    else:	
+        length = int(audio.info.length*1000)
+    print(length)
     link = item.find('link').text
     title = item.find('title').text
     pubDate = item.find('pubDate').text
     tags=" "
+    hashTags= " "
     for tag in item.findall('category'):
-        tags= "#"+ tag.text  + " , " + tags
-    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags)
-                VALUES(?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags))
+        hashTags= "#" + re.sub(r"\s+", '_', re.sub(r"[^\w\s+]", ' ', tag.text)) + " , " + hashTags
+        tags= "#" + tag.text  + " , " + tags
+    tags = tags +"\n" + hashTags
+    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags,length,filename)
+                VALUES(?,?,?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags,length,filename))
 
 db.commit()
 
@@ -86,7 +102,13 @@ else:
             f.write(newLine)
             newLine = "<pubDate>" + row[1] + "</pubDate>"+ "\n"
             f.write(newLine)
-            newLine= "<enclosure url=\"" +row[4] + "\" type=\"audio/mpeg\"/>"+ "\n"
+            if row[7] is not None:
+                newLine= "<enclosure url=\"" +row[4] + "\"  length=\"" + str(row[7] ) + "\" type=\"audio/mpeg\"/>"+ "\n"
+            else:
+                newLine= "<enclosure url=\"" +row[4] + "\" type=\"audio/mpeg\"/>"+ "\n"   
+
+
+
             f.write(newLine)
             newLine = "</item>"+ "\n"
             f.write(newLine)   
