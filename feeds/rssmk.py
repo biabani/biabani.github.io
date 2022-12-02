@@ -13,7 +13,7 @@ db = sqlite3.connect('data.db')
 cursor = db.cursor()
 cursor.execute('''
 	CREATE TABLE IF NOT EXISTS  data (id INTEGER PRIMARY KEY, pubDate TEXT UNIQUE,
-    title TEXT, description TEXT, medialink  TEXT, link TEXT)
+    title TEXT, description TEXT, medialink  TEXT, link TEXT, tags TEXT, length TEXT)
 ''')
 db.commit()
 
@@ -21,7 +21,7 @@ startText= '''<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
-    <title>Sahand Podcast | پادکست سهند</title>
+    <title>Sahand Podcast</title>
     <itunes:owner>
         <itunes:email>hasanbiabani@gmail.com</itunes:email>
     </itunes:owner>
@@ -59,8 +59,11 @@ for item in channel.findall('item'):
     link = item.find('link').text
     title = item.find('title').text
     pubDate = item.find('pubDate').text
-    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link)
-                VALUES(?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link))
+    tags=" "
+    for tag in item.findall('category'):
+        tags=tags + " , " + tag.text
+    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags)
+                VALUES(?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags))
 
 db.commit()
 
@@ -79,7 +82,7 @@ else:
             f.write(newLine)
             newLine = "<link>" + row[5] + "</link>"+ "\n"
             f.write(newLine)
-            newLine= "<description>" +row[3] + "</description>"+ "\n"
+            newLine= "<description>" +row[3] +  "\n" + row[6] +"</description>"+ "\n"
             f.write(newLine)
             newLine = "<pubDate>" + row[1] + "</pubDate>"+ "\n"
             f.write(newLine)
