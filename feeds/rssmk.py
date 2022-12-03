@@ -66,8 +66,11 @@ for item in channel.findall('item'):
         audio = MP3("media/" + filename)
     except:
         length = None
-    else:	
-        length = int(audio.info.length*1000)
+    else:	 
+        h = int(audio.info.length/3600)
+        m = int(audio.info.length/60) - h * 60
+        s = int((audio.info.length)  - int(audio.info.length/60) * 60)
+        length= str(h)+":"+str(m)+":"+str(s)
 
     try:
         filesize = os.path.getsize("media/" + filename)
@@ -83,9 +86,9 @@ for item in channel.findall('item'):
     hashTags= " "
     for tag in item.findall('category'):
         hashTags= "#" + re.sub(r"\s+", '_', re.sub(r"[^\w\s+]", ' ', tag.text)) + " " + hashTags
-        tags= "#" + tag.text  + " " + tags
+        #tags= "#" + tag.text  + " " + tags
     tags = tags +"\n" + hashTags
-    cursor.execute('''INSERT OR REPLACE INTO data(pubDate, title,description, medialink, link, tags,length,filename,filesize)
+    cursor.execute('''INSERT OR IGNORE INTO data(pubDate, title,description, medialink, link, tags,length,filename,filesize)
                 VALUES(?,?,?,?,?,?,?,?,?)''', (pubDate, title,newDescription, medialink, link,tags,length,filename,filesize))
 
 db.commit()
@@ -94,7 +97,7 @@ f = open("sahand.rss", "w")
 f.write(startText)
 
 try:
-    cursor.execute('''SELECT * FROM data''')
+    cursor.execute('''SELECT * FROM data ORDER BY id DESC LIMIT 30''')
 except:
 	None
 else:	
@@ -110,7 +113,8 @@ else:
             newLine = "<pubDate>" + row[1] + "</pubDate>"+ "\n"
             f.write(newLine)
             if row[9] is not None:
-                newLine= "<enclosure url=\"" +row[4] + "\"  length=\"" + str(row[9] ) + "\" type=\"audio/mpeg\"/>"+ "\n"
+                newLine= "<enclosure url=\"" +row[4] + "\"  length=\"" + str(row[9] ) + "\" type=\"audio/mpeg\"/>\n"
+                newLine=  newLine + "<itunes:duration>" + row[7] + "</itunes:duration>\n"
             else:
                 newLine= "<enclosure url=\"" +row[4] + "\" type=\"audio/mpeg\"/>"+ "\n"   
 
