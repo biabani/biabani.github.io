@@ -85,7 +85,7 @@ for item in channel.findall('item'):
     tags=" "
     hashTags= " "
     for tag in item.findall('category'):
-        hashTags= "#" + re.sub(r"\s+", '_', re.sub(r"[^\w\s+]", ' ', tag.text)) + " " + hashTags
+        hashTags= re.sub(r"\s+", ' ', re.sub(r"[^\w\s+]", ' ', tag.text)) + "  " + hashTags
         #tags= "#" + tag.text  + " " + tags
     tags = tags +"\n" + hashTags
     cursor.execute('''INSERT OR IGNORE INTO data(pubDate, title,description, medialink, link, tags,length,filename,filesize)
@@ -93,7 +93,7 @@ for item in channel.findall('item'):
 
 db.commit()
 
-f = open("sahand.rss", "w")
+f = open("sahand.xml", "w")
 f.write(startText)
 
 try:
